@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlists - Spotify-like Music Player</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Playlists</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/upload">Upload Music</a></li>
+                <li><a href="/playlist">Playlists</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="createPlaylist">
+            <h2>Create New Playlist</h2>
+            <form id="createPlaylistForm">
+                <input type="text" id="playlistName" name="playlistName" placeholder="Enter playlist name" required>
+                <button type="submit">Create Playlist</button>
+            </form>
+        </section>
+
+        <section id="playlists">
+            <h2>Your Playlists</h2>
+            <ul id="playlistList"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Spotify-like Music Player</p>
+    </footer>
+
+    <script src="/playlist.js"></script>
+</body>
+</html>

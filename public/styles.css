@@ -1,0 +1,265 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "search search"
+        "upload playlist"
+        "player player";
+    gap: 20px;
+}
+
+header {
+    grid-area: header;
+    background-color: #282828;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    border-bottom: 2px solid #1DB954;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+h1 {
+    color: #1DB954;
+}
+
+#search {
+    grid-area: search;
+    padding: 20px;
+    background-color: #282828;
+}
+
+#uploadForm {
+    grid-area: upload;
+    padding: 20px;
+    background-color: #282828;
+    border-radius: 8px;
+}
+
+#musicList {
+    grid-area: playlist;
+    padding: 20px;
+    background-color: #282828;
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+#player {
+    grid-area: player;
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+}
+
+#searchInput {
+    flex-grow: 1;
+}
+
+input, textarea, button {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input, textarea {
+    background-color: #3A3A3A;
+    color: #FFFFFF;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    background-color: #1DB954;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #1ED760;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-input-wrapper input[type=file] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-input-wrapper label {
+    display: block;
+    padding: 12px;
+    background-color: #3A3A3A;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#searchResults, #musicListContainer {
+    list-style-type: none;
+    padding: 0;
+}
+
+#searchResults li, #musicListContainer li {
+    background-color: #3A3A3A;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#searchResults li:hover, #musicListContainer li:hover {
+    background-color: #444;
+}
+
+.music-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.music-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.play-btn, .delete-btn {
+    padding: 8px 12px;
+    font-size: 0.9em;
+}
+
+.play-btn {
+    background-color: #1DB954;
+}
+
+.play-btn:hover {
+    background-color: #1ED760;
+}
+
+.delete-btn {
+    background-color: #E91E63;
+}
+
+.delete-btn:hover {
+    background-color: #FF4081;
+}
+
+#nowPlaying {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.lyrics-container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #282828;
+    border-radius: 4px;
+    border: 1px solid #3A3A3A;
+}
+
+.lyrics-container h4 {
+    color: #1DB954;
+    margin-bottom: 10px;
+}
+
+.lyrics-container pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #B3B3B3;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+#audioPlayer {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #3A3A3A;
+    color: #FFFFFF;
+}
+
+#audioPlayer::-webkit-media-controls-panel {
+    background-color: #3A3A3A;
+}
+
+#audioPlayer::-webkit-media-controls-current-time-display,
+#audioPlayer::-webkit-media-controls-time-remaining-display {
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "search"
+            "upload"
+            "playlist"
+            "player";
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    #searchButton {
+        width: 100%;
+    }
+
+    .music-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .music-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .play-btn, .delete-btn {
+        flex-grow: 1;
+        text-align: center;
+    }
+}

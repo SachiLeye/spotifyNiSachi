@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify-like Music Player</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Spotify-like Music Player ni Sachi</h1>
+    </header>
+
+    <section id="search">
+        <h2>Search Music</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by title or artist">
+            <button id="searchButton">Search</button>
+        </div>
+        <ul id="searchResults"></ul>
+    </section>
+
+    <section id="uploadForm">
+        <h2>Upload Music</h2>
+        <form id="musicUploadForm" enctype="multipart/form-data">
+            <input type="text" id="title" name="title" placeholder="Title" required>
+            <input type="text" id="artist" name="artist" placeholder="Artist" required>
+            <textarea id="lyrics" name="lyrics" placeholder="Lyrics" required></textarea>
+            <div class="file-input-wrapper">
+                <input type="file" id="audio" name="audio" accept="audio/*" required>
+                <label for="audio">Choose audio file</label>
+            </div>
+            <div class="file-input-wrapper">
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <label for="image">Choose cover image</label>
+            </div>
+            <button type="submit">Upload</button>
+        </form>
+    </section>
+
+    <section id="musicList">
+        <h2>Music Library</h2>
+        <ul id="musicListContainer"></ul>
+    </section>
+
+    <section id="player">
+        <h2>Now Playing</h2>
+        <audio id="audioPlayer" controls></audio>
+        <h3 id="nowPlaying"></h3>
+        <div id="lyricsContainer" class="lyrics-container">
+            <h4>Lyrics</h4>
+            <pre id="lyrics"></pre>
+        </div>
+    </section>
+
+    <script src="/script.js"></script>
+</body>
+</html>
